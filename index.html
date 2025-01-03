@@ -7,15 +7,25 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         .projects-list {
             display: flex;
             flex-direction: column;
-            gap: 6rem;
+            gap: 8rem;
+            padding: 2rem 0;
         }
 
         .project-item {
             width: 100%;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .project-content {
@@ -74,6 +84,178 @@
             .project-content.reverse {
                 flex-direction: column;
             }
+            .projects-list {
+                gap: 6rem;
+            }
+            
+            .project-item {
+                margin-bottom: 1rem;
+                padding: 1rem 0;
+            }
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .company-logo {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .company-logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        .contact-info {
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #007bff;
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .contact-item {
+                font-size: 1rem;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .certification-item {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+
+        .certificate-modal {
+            width: 90%;
+            max-width: 900px;
+            padding: 30px;
+        }
+
+        .certificate-modal img {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #certificateTitle {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .certification-divider {
+            height: 1px;
+            background: #eee;
+            margin: 1.5rem 0;
+            width: 100%;
+        }
+
+        .certification-item {
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+            background: #f8f9fa;
+        }
+
+        .certification-details h3 {
+            color: #333;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .certifications-grid {
+            max-width: 800px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -89,6 +271,7 @@
                 <li><a href="#video">Video</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -100,10 +283,10 @@
         <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
-                <img src="https://i.ibb.co/rmzHNNN/1707312982934.jpg" alt="Profile Picture" data-aos="flip-left">
+                <img src="prof.png" alt="Profile Picture" data-aos="flip-left">
                 <div class="about-text" data-aos="fade-left" data-aos-delay="200">
                     <h3>Hello, I'm Mohamed Gomaa</h3>
-                    <p>I'm a passionate Software Testing Engineer with 1+ years of experience in automated and manual testing. Specializing in web application testing, API testing, and continuous integration practices. I believe in the power of thorough testing to deliver exceptional user experiences.</p>
+                    <p>I'm from Alexandria, Egypt, and I graduated from Alexandria University, Faculty of Engineering. I started my software testing career in 2024. I love anything related to software development, so I enjoy programming and testing any kind of software. When you put passion and hard work into something, you will get the best result ever.</p>
                 </div>
             </div>
         </div>
@@ -128,68 +311,129 @@
             <h2>Experience</h2>
             <div class="timeline">
                 <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-                    <h3>Senior QA Engineer</h3>
-                    <p>TechCorp Solutions | 2020 - Present</p>
-                    <p>• Led a team of 5 QA engineers in testing enterprise-level applications<br>
-                       • Implemented Selenium and Cypress automated testing frameworks<br>
-                       • Reduced bug escape rate by 45% through improved test coverage</p>
+                    <div class="company-logo">
+                        <img src="zahran-logo.jpeg" alt="Zahran Market Logo">
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Information Technology Executive</h3>
+                        <p>Zahran Market | Sep 2024 - Present</p>
+                        <p>
+                            • Managed IT Helpdesk using Manage Engine and monitored networks through PRTG<br>
+                            • Developed custom automation software to improve efficiency for repetitive tasks<br>
+                            • Supported and maintained ERP MS Dynamics Nav System<br>
+                            • Conducted PM visits and urgent technical support for 22 branches<br>
+                            • Managed hardware support for various devices including receipt printers, DVRs, PCs, and laptops<br>
+                            • Supporting VOIP, UPS, and scale system maintenance<br>
+                            • Assisted with Server and Active Directory administration<br>
+                            • Managed Eset Endpoint updates for 500+ devices<br>
+                            • Coordinated OS updates across 500+ devices while maintaining business operations
+                        </p>
+                    </div>
                 </div>
-                <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
-                    <h3>QA Automation Engineer</h3>
-                    <p>Digital Innovations Inc. | 2018 - 2020</p>
-                    <p>• Developed and maintained test automation frameworks<br>
-                       • Performed API testing using Postman and RestAssured<br>
-                       • Collaborated with dev teams in an Agile environment</p>
+            
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="company-logo">
+                        <img src="turbo-logo.jpeg" alt="Turbo EG Logo">
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Branch Manager</h3>
+                        <p>Turbo EG | Aug 2024 - Aug 2024</p>
+                        <p>
+                            • Managed branch operational processes through the framework system<br>
+                            • Handled daily pickup operations and coordination<br>
+                            • Managed returns and cash collection from representatives<br>
+                            • Coordinated cash deposits to accounts through banking channels<br>
+                            • Maintained and organized inventory to prevent losses<br>
+                            • Recruited and managed shipping representatives
+                        </p>
+                    </div>
                 </div>
+
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="company-logo">
+                        <img src="ays-logo.jpeg" alt="Alexandria Shipyard Logo">
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Production Engineer Internship Trainee</h3>
+                        <p>ALEXANDRIA SHIPYARD (AYS) | Sep 2021 - Sep 2021</p>
+                        <p>
+                            • Received comprehensive training in workplace safety protocols and firefighting procedures<br>
+                            • Gained hands-on experience in workshop operations and machinery repair<br>
+                            • Learned fiber glass manufacturing and application techniques<br>
+                            • Participated in welding operations and hull assembly processes<br>
+                            • Developed practical understanding of shipbuilding and maintenance procedures
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="company-logo">
+                        <img src="titan-logo.jpeg" alt="TITAN Cement Logo">
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Production Engineer Internship Trainee</h3>
+                        <p>TITAN Cement Egypt (TCE) | Aug 2021 - Aug 2021</p>
+                        <p>
+                            • Completed comprehensive Health & Safety training in cement manufacturing environment<br>
+                            • Studied Green Economy initiatives and sustainable cement production practices<br>
+                            • Learned end-to-end cement industry processes and production workflows<br>
+                            • Participated in finance for non-financial professionals training program<br>
+                            • Developed team leadership and effective communication skills through group projects<br>
+                            • Gained practical understanding of sustainable manufacturing practices
+                        </p>
+                    </div>
+                </div>
+
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="company-logo">
+                        <img src="ecw-logo.jpeg" alt="Egyptian Copper Works Logo">
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Production Engineer Internship Trainee</h3>
+                        <p>Egyptian Copper Works | July 2021 - July 2021</p>
+                        <p>
+                            • Learned comprehensive copper manufacturing processes including casting, rolling, and drawing<br>
+                            • Gained hands-on experience with copper extrusion techniques and machinery<br>
+                            • Received training in workplace safety protocols for metal manufacturing<br>
+                            • Studied various stages of copper production and quality control<br>
+                            • Participated in practical workshops on metal forming and processing
+                        </p>
+                    </div>
+                </div>
+
+
+
+
             </div>
         </div>
     </section>
+
 
     <!-- Projects Section -->
     <section id="projects" data-aos="fade-up" data-aos-duration="1000">
         <div class="container">
             <h2>Projects</h2>
             <div class="projects-list">
+                
                 <div class="project-item" data-aos="fade-up">
                     <div class="project-content">
                         <div class="project-text">
-                            <h3>E-commerce Testing Suite</h3>
-                            <p>Developed comprehensive automated testing suite for a major e-commerce platform using Selenium WebDriver. Implemented page object model design pattern and reduced test execution time by 40%.</p>
+                            <h3>Personal Portfolio Website</h3>
+                            <p>Designed and developed a responsive personal portfolio website using modern web technologies. Features include smooth animations, responsive design, and interactive elements to showcase my professional experience and projects.</p>
                             <div class="tech-stack">
-                                <span>Selenium</span>
-                                <span>Java</span>
-                                <span>TestNG</span>
-                                <span>Jenkins</span>
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>AOS Library</span>
+                                <span>Responsive Design</span>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="btn">View Project</a>
-                                <a href="#" class="btn btn-outline">GitHub</a>
+                                <a href="https://gowano2022.github.io/gomaaportofiliotest/" class="btn">Live Demo</a>
                             </div>
                         </div>
                         <div class="project-image">
-                            <img src="https://picsum.photos/600/400?random=1" alt="E-commerce Testing Suite">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item" data-aos="fade-up">
-                    <div class="project-content reverse">
-                        <div class="project-text">
-                            <h3>API Testing Framework</h3>
-                            <p>Created a robust API testing framework using RestAssured and TestNG for microservices architecture. Achieved 90% test coverage and integrated with CI/CD pipeline.</p>
-                            <div class="tech-stack">
-                                <span>RestAssured</span>
-                                <span>TestNG</span>
-                                <span>Postman</span>
-                                <span>Docker</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="btn">View Project</a>
-                                <a href="#" class="btn btn-outline">GitHub</a>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="https://picsum.photos/600/400?random=2" alt="API Testing Framework">
+                            <img src="p1.png" alt="Portfolio Website">
                         </div>
                     </div>
                 </div>
@@ -197,27 +441,244 @@
                 <div class="project-item" data-aos="fade-up">
                     <div class="project-content">
                         <div class="project-text">
-                            <h3>Mobile App Testing</h3>
-                            <p>Implemented Appium-based automated testing for cross-platform mobile applications. Supported both iOS and Android platforms with 85% code reusability.</p>
+                            <h3>Network Monitoring & Management Suite</h3>
+                            <p>Developed a comprehensive GUI-based network monitoring solution for Zahran IT team that streamlines network diagnostics and management. The application features real-time ping monitoring, traceroute analysis, automated logging, and integrated network device management.</p>
+                            <ul class="feature-list">
+                                <li>Real-time network performance monitoring with customizable alerts</li>
+                                <li>Automated log management system for ping and traceroute data</li>
+                                <li>Integrated printer management with direct browser access</li>
+                                <li>Smart search functionality with Excel integration for device inventory</li>
+                            </ul>
                             <div class="tech-stack">
-                                <span>Appium</span>
                                 <span>Python</span>
-                                <span>Pytest</span>
-                                <span>BrowserStack</span>
+                                <span>Tkinter</span>
+                                <span>Network Protocols</span>
+                                <span>Windows API</span>
+                                <span>Excel Sheets</span>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="btn">View Project</a>
-                                <a href="#" class="btn btn-outline">GitHub</a>
+                                <a href="https://drive.google.com/file/d/1x6vVF0YFtt6B3lcId5Xl71a2q3DhiUUJ/view?usp=sharing" class="btn" target="_blank">Download</a>
                             </div>
                         </div>
                         <div class="project-image">
-                            <img src="https://picsum.photos/600/400?random=3" alt="Mobile App Testing">
+                            <img src="monitor.png" alt="Network Monitoring Suite Interface" 
+                                 style="max-width: 600px; margin: 0 auto; display: block; 
+                                        border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        </div>
+                    </div>
+                </div>
+
+            
+
+                <div class="project-item" data-aos="fade-up">
+                    <div class="project-content">
+                        <div class="project-text">
+                            <h3>Python GUI for Eset Antivirus Removal</h3>
+                            <p>Designed and developed a GUI-based Python desktop application for Zahran IT team to remove Eset Endpoint Antivirus agent and product from its root, ensuring no future issues.</p>
+                            <div class="tech-stack">
+                                <span>Python</span>
+                                <span>Tkinter</span>
+                                <span>System Administration</span>
+                                <span>Windows API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="javascript:void(0)" class="btn" onclick="showConfidentialMessage()">Confidential Project</a>
+                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="eset.png" alt="ESET Removal Tool Interface" style="max-width: 600px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-item" data-aos="fade-up">
+                    <div class="project-content">
+                        <div class="project-text">
+                            <h3>Excel Duplicate Data Checker</h3>
+                            <p>Developed an offline-capable web application that helps users identify and locate duplicate data in Excel sheets. The app generates detailed reports showing exact cell locations (e.g., "Sheet1 A12") of duplicated content, making data cleanup efficient and user-friendly.</p>
+                            <div class="tech-stack">
+                                <span>HTML5</span>
+                                <span>JavaScript</span>
+                                <span>Excel Processing</span>
+                                <span>Offline Support</span>
+                                <span>Data Analysis</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://bit.ly/3MZDtBv" class="btn" target="_blank">View Project</a>
+                                <a href="https://bit.ly/47L9neu" class="btn" target="_blank">Download</a>
+                            </div>
+                        </div>
+                        <div class="project-image">
+                            <video width="100%" height="300" controls style="max-width: 600px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                                <source src="p2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="project-item" data-aos="fade-up">
+                    <div class="project-content">
+                        <div class="project-text">
+                            <h3>Excel Sheet Combiner</h3>
+                            <p>Developed an offline web application that efficiently combines two Excel sheets. The app automatically merges columns from the second sheet (b.xlsx) into the first sheet (a.xls), handling duplicate columns and maintaining data integrity. Perfect for users who need quick Excel file merging without installing additional software.</p>
+                            <div class="tech-stack">
+                                <span>HTML5</span>
+                                <span>JavaScript</span>
+                                <span>Excel Processing</span>
+                                <span>Offline Support</span>
+                                <span>Data Merging</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://bit.ly/3TMiVAh" class="btn" target="_blank">View Project</a>
+                                <a href="https://bit.ly/3BnGpVQ" class="btn" target="_blank">Download</a>
+                            </div>
+                        </div>
+                        <div class="project-image">
+                            <video width="100%" height="300" controls style="max-width: 600px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                                <source src="p3.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-item" data-aos="fade-up">
+                    <div class="project-content">
+                        <div class="project-text">
+                            <h3>Protonile Feeds Android App</h3>
+                            <p>Developed a freelance Android application for Protonile for Feeds company in record time. Built using AndLua+, a unique Chinese development tool, entirely from a mobile device without requiring a PC. The app functions completely offline, making it accessible anywhere.</p>
+                            <div class="tech-stack">
+                                <span>Lua</span>
+                                <span>Java</span>
+                                <span>XML</span>
+                                <span>HTML</span>
+                                <span>JavaScript</span>
+                                <span>CSS</span>
+                                <span>AndLua+</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="javascript:void(0)" class="btn" onclick="showConfidentialMessage()">Confidential Project</a>
+                            </div>
+                        </div>
+                        <div class="project-image">
+                            <video width="100%" height="300" controls style="max-width: 600px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                                <source src="p4.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-item" data-aos="fade-up">
+                    <div class="project-content">
+                        <div class="project-text">
+                            <h3>Police Investigation App</h3>
+                            <p>Developed a Windows application for law enforcement that analyzes phone call relationships between numbers and integrates with multiple contact databases. The app features automated searches across TrueCaller, Eycon, and GetContact, while also identifying associated social media profiles and WhatsApp information. This tool streamlines the investigation process by consolidating multiple data sources into a single interface.</p>
+                            <div class="tech-stack">
+                                <span>C#</span>
+                                <span>Windows Forms</span>
+                                <span>API Integration</span>
+                                <span>Data Analysis</span>
+                                <span>Mobile Integration</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="javascript:void(0)" class="btn" onclick="showConfidentialMessage()">Confidential Project</a>
+                            </div>
+                        </div>
+                        <div class="project-image">
+                            <div style="position: relative; max-width: 600px; margin: 0 auto; background: #f5f5f5; height: 300px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #666;">
+                                    <i class="fas fa-lock" style="font-size: 64px; margin-bottom: 15px;"></i>
+                                    <p style="margin: 0; font-size: 1.2rem; font-weight: bold;">Confidential Project</p>
+                                    <p style="margin: 5px 0 0; font-size: 0.9rem;">Images cannot be shared publicly</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    
+
+      <!-- Certifications Section -->
+    <section id="certifications" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="certifications-grid">
+                <!-- 1. Network Security -->
+           
+
+                <!-- 2. Database Fundamentals -->
+                <div class="certification-item" data-aos="fade-up" onclick="showCertificate('c2.png', 'Database Fundamentals')">
+                    <div class="certification-content">
+                        <div class="certification-details">
+                            <h3>MaharaTech ITIMooca Database Fundamentals - Aug 2024</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification-divider"></div>
+
+                <!-- 3. CompTIA Security+ -->
+                <div class="certification-item" data-aos="fade-up" onclick="showCertificate('c3.png', 'ISTQB Foundation Level')">
+                    <div class="certification-content">
+                        <div class="certification-details">
+                            <h3>MaharaTech ITIMooca ISTQB Foundation Level - Aug 2024</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification-divider"></div>
+
+                <!-- 4. Microsoft Azure -->
+                <div class="certification-item" data-aos="fade-up" onclick="showCertificate('c4.png', 'Effective Test Case and Bug Report Writing Techniques')">
+                    <div class="certification-content">
+                        <div class="certification-details">
+                            <h3>Effective Test Case and Bug Report Writing Techniques - Aug 2024</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification-divider"></div>
+
+                <!-- 5. AWS Cloud -->
+                <div class="certification-item" data-aos="fade-up" onclick="showCertificate('c5.png', 'Mastering Object-Oriented Programming (OOP) using C++')">
+                    <div class="certification-content">
+                        <div class="certification-details">
+                            <h3>Mastering Object-Oriented Programming (OOP) using C++ - Aug 2024</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification-divider"></div>
+
+                <!-- 6. Google Data Analysis -->
+                <div class="certification-item" data-aos="fade-up" onclick="showCertificate('c6.png', 'Google Data Analysis')">
+                    <div class="certification-content">
+                        <div class="certification-details">
+                            <h3>Google Data Analysis - April 2024</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification-divider"></div>
+
+                <!-- 7. CCNA -->
+                <div class="certification-item" data-aos="fade-up" onclick="showCertificate('c7.png', 'Network Security by Cisco')">
+                    <div class="certification-content">
+                        <div class="certification-details">
+                            <h3>Cisco Network Security - Sep 2024</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification-divider"></div>
+
+          
+
+            
+            </div>
+        </div>
+    </section>
+
 
     <!-- Resume Section -->
     <section id="resume" data-aos="fade-up" data-aos-duration="1000">
@@ -237,14 +698,58 @@
     <section id="contact" data-aos="fade-up" data-aos-duration="1000">
         <div class="container">
             <h2>Contact Me</h2>
-            <form id="contactForm">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <a href="tel:+201028838444">
+                        <img src="phone-icon.png" alt="Phone" class="contact-icon">
+                        <span>+20 102 883 8444 🇪🇬</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://wa.me/201028838444" target="_blank">
+                        <img src="whatsapp-icon.png" alt="WhatsApp" class="contact-icon">
+                        <span>+20 102 883 8444</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:mohamedgomaa31996@outlook.com">
+                        <img src="email-icon.png" alt="Email" class="contact-icon">
+                        <span>mohamedgomaa31996@outlook.com</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <img src="location-icon.png" alt="Location" class="contact-icon">
+                    <span>Egypt, Alexandria, El-Asafra Bahary</span>
+                </div>
+            </div>
+            
+            <!-- Contact form temporarily disabled -->
+            <!-- <form id="contactForm">
                 <input type="text" placeholder="Name" required>
                 <input type="email" placeholder="Email" required>
                 <textarea placeholder="Message" required></textarea>
                 <button type="submit" class="btn">Send Message</button>
-            </form>
+            </form> -->
+            
         </div>
     </section>
+
+    <div id="confidentialModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Confidential Project</h3>
+            <p>This project was developed for private company use and is not available for public sharing.</p>
+        </div>
+    </div>
+
+    <!-- Add Certificate Modal -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content certificate-modal">
+            <span class="close-modal" onclick="closeCertificateModal()">&times;</span>
+            <h3 id="certificateTitle"></h3>
+            <img id="certificateImage" src="" alt="Certificate" style="width: 100%; max-width: 800px; height: auto; margin-top: 20px;">
+        </div>
+    </div>
 
     <script>
         AOS.init({
@@ -256,6 +761,45 @@
             mirror: true,
             anchorPlacement: 'top-bottom'
         });
+
+        function showConfidentialMessage() {
+            const modal = document.getElementById('confidentialModal');
+            modal.style.display = 'block';
+
+            // Close when clicking the X
+            document.querySelector('.close-modal').onclick = function() {
+                modal.style.display = 'none';
+            }
+
+            // Close when clicking outside the modal
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+
+        function showCertificate(imageSrc, title) {
+            const modal = document.getElementById('certificateModal');
+            const titleElement = document.getElementById('certificateTitle');
+            const imageElement = document.getElementById('certificateImage');
+            
+            titleElement.textContent = title;
+            imageElement.src = imageSrc;
+            modal.style.display = 'block';
+        }
+
+        function closeCertificateModal() {
+            document.getElementById('certificateModal').style.display = 'none';
+        }
+
+        // Close when clicking outside the modal
+        window.onclick = function(event) {
+            const modal = document.getElementById('certificateModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html> 
