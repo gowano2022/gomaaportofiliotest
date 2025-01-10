@@ -257,6 +257,72 @@
             max-width: 800px;
             margin: 0 auto;
         }
+
+        .education-item {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .education-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .education-logo {
+            flex-shrink: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .education-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .education-details {
+            flex: 1;
+        }
+
+        .education-details h3 {
+            margin: 0;
+            color: #333;
+            font-size: 1.4rem;
+        }
+
+        .education-details h4 {
+            margin: 0.5rem 0;
+            color: #555;
+            font-size: 1.2rem;
+        }
+
+        .education-period {
+            color: #666;
+            margin: 0.5rem 0;
+        }
+
+        .education-grade {
+            color: #666;
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .education-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .education-logo {
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -268,6 +334,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#video">Video</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -286,9 +353,50 @@
                 <img src="prof.png" alt="Profile Picture" data-aos="flip-left">
                 <div class="about-text" data-aos="fade-left" data-aos-delay="200">
                     <h3>Hello, I'm Mohamed Gomaa</h3>
-                    <p>I'm from Alexandria, Egypt, and I graduated from Alexandria University, Faculty of Engineering. I started my software testing career in 2024. I love anything related to software development, so I enjoy programming and testing any kind of software. When you put passion and hard work into something, you will get the best result ever.</p>
+                    <p>I'm from Alexandria, Egypt, and I graduated from Alexandria University, Faculty of Engineering. I started my software testing career in 2024. I love anything related to software development, so I enjoy programming and testing any kind of software. When you put passion and hard work into something, you will get the best result ever. </p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" data-aos="fade-up" data-aos-duration="1000">
+        
+        <div class="container">
+            <h2>Education</h2>
+
+            <div class="education-item" data-aos="fade-right" data-aos-delay="100">
+                <div class="education-content">
+                    <div class="education-logo">
+                        <img src="depi.png" alt="Egyptian Digital Pioneer initiative (DEPI)">
+                    </div>
+                    <div class="education-details">
+                        <h3>Egyptian Digital Pioneer initiative (DEPI)</h3>
+                        <h4>Software Testing</h4>
+                        <p class="education-period">2024-2025</p>
+                        <p class="education-grade">In Progress</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="education-item" data-aos="fade-right" data-aos-delay="100">
+                <div class="education-content">
+                    <div class="education-logo">
+                        <img src="alexandria-university-logo.png" alt="Alexandria University Logo">
+                    </div>
+                    <div class="education-details">
+                        <h3>Alexandria University</h3>
+                        <h4>Bachelor's degree, Production Engineer</h4>
+                        <p class="education-period">Oct 2017 - Aug 2022</p>
+                        <p class="education-grade">Grade: Good (C+)</p>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
     </section>
 
@@ -349,59 +457,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-                    <div class="company-logo">
-                        <img src="ays-logo.jpeg" alt="Alexandria Shipyard Logo">
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Production Engineer Internship Trainee</h3>
-                        <p>ALEXANDRIA SHIPYARD (AYS) | Sep 2021 - Sep 2021</p>
-                        <p>
-                            • Received comprehensive training in workplace safety protocols and firefighting procedures<br>
-                            • Gained hands-on experience in workshop operations and machinery repair<br>
-                            • Learned fiber glass manufacturing and application techniques<br>
-                            • Participated in welding operations and hull assembly processes<br>
-                            • Developed practical understanding of shipbuilding and maintenance procedures
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-                    <div class="company-logo">
-                        <img src="titan-logo.jpeg" alt="TITAN Cement Logo">
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Production Engineer Internship Trainee</h3>
-                        <p>TITAN Cement Egypt (TCE) | Aug 2021 - Aug 2021</p>
-                        <p>
-                            • Completed comprehensive Health & Safety training in cement manufacturing environment<br>
-                            • Studied Green Economy initiatives and sustainable cement production practices<br>
-                            • Learned end-to-end cement industry processes and production workflows<br>
-                            • Participated in finance for non-financial professionals training program<br>
-                            • Developed team leadership and effective communication skills through group projects<br>
-                            • Gained practical understanding of sustainable manufacturing practices
-                        </p>
-                    </div>
-                </div>
-
-                
-                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-                    <div class="company-logo">
-                        <img src="ecw-logo.jpeg" alt="Egyptian Copper Works Logo">
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Production Engineer Internship Trainee</h3>
-                        <p>Egyptian Copper Works | July 2021 - July 2021</p>
-                        <p>
-                            • Learned comprehensive copper manufacturing processes including casting, rolling, and drawing<br>
-                            • Gained hands-on experience with copper extrusion techniques and machinery<br>
-                            • Received training in workplace safety protocols for metal manufacturing<br>
-                            • Studied various stages of copper production and quality control<br>
-                            • Participated in practical workshops on metal forming and processing
-                        </p>
-                    </div>
-                </div>
-
+            
 
 
 
@@ -486,7 +542,7 @@
                             </div>
                         </div>
                         <div class="project-image">
-                            <img src="ESET.png" alt="ESET Removal Tool Interface" style="max-width: 600px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                            <img src="eset.png" alt="ESET Removal Tool Interface" style="max-width: 600px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
                         </div>
                     </div>
                 </div>
@@ -662,15 +718,6 @@
                 </div>
                 <div class="certification-divider"></div>
 
-                <!-- 7. CCNA -->
-                <div class="certification-item" data-aos="fade-up" onclick="showCertificate('c7.png', 'Network Security by Cisco')">
-                    <div class="certification-content">
-                        <div class="certification-details">
-                            <h3>Cisco Network Security - Sep 2024</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="certification-divider"></div>
 
           
 
